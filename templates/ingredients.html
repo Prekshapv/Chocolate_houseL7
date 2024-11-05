@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Inventory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #6F4C3E;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #F7E7CE;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: #4E3B31;
+        }
+        form {
+            display: inline;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #E74C3C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #C0392B;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 12px;
+            background-color: #6F4C3E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #4B3D32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ingredient Inventory</h1>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>
+                {{ ingredient['ingredient_name'] }} - Quantity: {{ ingredient['quantity'] }}
+                <form action="/delete_ingredient/{{ ingredient['id'] }}" method="POST" style="display: inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% else %}
+            <li>No ingredients available.</li>
+        {% endfor %}
+    </ul>
+    <a href="/add_ingredient">Add a New Ingredient</a>
+    <a href="/">Back to Home</a>
+</body>
+</html>

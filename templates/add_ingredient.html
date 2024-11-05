@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Ingredient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #6F4C3E;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            margin: 5px 0;
+            width: 200px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #6F4C3E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4B3D32;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 12px;
+            background-color: #6F4C3E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #4B3D32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Ingredient</h1>
+    <form action="/ingredient" method="POST">
+        <input type="text" name="name" placeholder="Ingredient Name" required>
+        <input type="number" name="quantity" placeholder="Quantity" required>
+        <button type="submit">Add Ingredient</button>
+    </form>
+    <a href="/ingredients">View Ingredients</a>
+    <a href="/">Back to Home</a>
+</body>
+</html>

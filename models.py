@@ -48,16 +48,16 @@ def get_all_ingredients():
         cursor.execute("SELECT * FROM ingredient_inventory")
         return [dict(ingredient) for ingredient in cursor.fetchall()]
 
-def delete_ingredient(name):
+def delete_ingredient_by_id(ingredient_id):
     with get_db_connection() as conn:
         cursor = conn.cursor()
-        cursor.execute("DELETE FROM ingredient_inventory WHERE ingredient_name = ?", (name,))
+        cursor.execute("DELETE FROM ingredient_inventory WHERE id = ?", (ingredient_id,))
         conn.commit()
 
-def add_customer_suggestion(flavor_suggestion, allergy_concern):
+def add_customer_suggestion(flavor_id, allergy_concern):
     with get_db_connection() as conn:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO customer_suggestions (flavor_suggestion, allergy_concern) VALUES (?, ?)", (flavor_suggestion, allergy_concern))
+        cursor.execute("INSERT INTO customer_suggestions (flavor_id, allergy_concern) VALUES (?, ?)", (flavor_id, allergy_concern))
         conn.commit()
 
 def get_all_suggestions():

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Suggestions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #6F4C3E;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #F7E7CE;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: #4E3B31;
+        }
+        form {
+            display: inline;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #E74C3C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #C0392B;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 12px;
+            background-color: #6F4C3E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #4B3D32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Flavor Suggestions</h1>
+    <ul>
+        {% for suggestion in suggestions %}
+            <li>
+                Suggested Flavor ID: {{ suggestion['flavor_id'] }} - Allergy Concern: {{ suggestion['allergy_concern'] }}
+                <form action="/delete_suggestion/{{ suggestion['id'] }}" method="POST" style="display: inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% else %}
+            <li>No suggestions available.</li>
+        {% endfor %}
+    </ul>
+    <a href="/add_suggestion">Add a New Suggestion</a>
+    <a href="/">Back to Home</a>
+</body>
+</html>
