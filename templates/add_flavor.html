@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Flavor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #6F4C3E;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #6F4C3E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4B3D32;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 12px;
+            background-color: #6F4C3E;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #4B3D32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Seasonal Flavor</h1>
+    <form action="/flavor" method="POST">
+        <label for="name">Flavor Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="availability">Availability:</label>
+        <input type="text" id="availability" name="availability" required><br><br>
+        
+        <button type="submit">Add Flavor</button>
+    </form>
+    
+    <br>
+    <a href="/flavors">View Seasonal Flavors</a>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

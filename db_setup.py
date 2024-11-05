@@ -5,21 +5,18 @@ def initialize_db():
         conn = sqlite3.connect('chocolate_house.db')
         cursor = conn.cursor()
 
-        # Seasonal Flavors table
         cursor.execute('''CREATE TABLE IF NOT EXISTS seasonal_flavors (
                             id INTEGER PRIMARY KEY,
                             name TEXT NOT NULL,
                             availability TEXT
                             )''')
 
-        # Ingredient Inventory table
         cursor.execute('''CREATE TABLE IF NOT EXISTS ingredient_inventory (
                             id INTEGER PRIMARY KEY,
                             ingredient_name TEXT NOT NULL,
                             quantity INTEGER NOT NULL
                             )''')
 
-        # Customer Suggestions table
         cursor.execute('''CREATE TABLE IF NOT EXISTS customer_suggestions (
                             id INTEGER PRIMARY KEY,
                             flavor_suggestion TEXT,
