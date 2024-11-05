@@ -15,9 +15,12 @@ python app.py
 1.Clone the repository
 git clone https://github.com/Prekshapv/Chocolate_houseL7.git
 Ensure you're on the main branch.
+
 2.Navigate to the project directory
+
 3.Build the Docker image: Create a Docker image named chocolate-house-app:
 docker build -t <container-name> .
+
 4.Run the Docker container: Start the application by running a container from the chocolate-house-app image:
 docker run -it -p 8000:8000 chocolate-house-app
 
